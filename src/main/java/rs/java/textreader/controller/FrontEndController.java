@@ -24,7 +24,7 @@ public class FrontEndController {
 
     @GetMapping("/")
     public String geWriterService(ModelMap map) {
-        map.put("newFileName", fileName);
+        map.put("newFileName", new FileName());
         return "index";
     }
 

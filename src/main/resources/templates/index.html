@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>Odczyt textu z grafiki</title>
+    <meta name="description" content="Odczyt textu z grafiki"/>
+    <meta name="keywords" content="text, grafika"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <style>
+    body
+    {
+  background-image: url('photo.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+    }
+    #container
+	{
+    width: 1000px;
+		margin-left: auto;
+		margin-right: auto;
+		font-family: 'Lato', sans-serif;
+    }
+	#logo
+	{
+		background-color: black;
+		color: white;
+		text-align: center;
+		padding: 5px;
+		font-size: 15px;
+	}
+	#nav
+	{
+		float: left;
+		background-color: lightgray;
+		width: 0px;
+		min-height: 450px;
+		padding: 0px;
+	}
+	#content
+	{
+		float: left;
+		padding: 20px;
+		width: 920px;
+	}
+	#ad
+	{
+		float: left;
+		width: 0px;
+		min-height: 450px;
+		padding: 0px;
+		background-color: lightgray;
+	}
+	#footer
+	{
+		clear: both;
+		background-color: black;
+		color: white;
+		text-align: center;
+		padding: 20px;
+	}
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="logo">
+        <h1>Odczyt tekstu z pliku graficznego</h1>
+    </div>
+    <div id="nav">
+        <br/>
+    </div>
+    <div id="content">
+        <center>
+            <form th:action="@{/add-service}" th:object="${newFileName}" method="post">
+                <h2>1. Utwórz nowy folder na dysku <b>C:</b> o nazwie Reader</h2>
+                <h2>2. Wklej plik graficzny to tego folderu.</h2>
+                <h2>3. Skopiuj nazwę pliku graficznego (wraz z rozszerzeniem)</h2>
+                <h2>4. Wklej poniżej pełną nazwę pliku (wraz z rozszerzeniem) </h2>
+
+                <p><input type="text" autocomplete="off" th:field="*{name}"></p>
+
+                <p><input type="submit" value="Konwertuj"></p>
+            </form>
+        </center>
+    </div>
+    <div id="ad">
+        <br>
+    </div>
+    <div id="footer">
+        RS Java Solutions - All rights reserved
+    </div>
+</div>
+</body>
+</html>

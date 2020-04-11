@@ -14,11 +14,11 @@ public class TextReaderApplication {
     public static void main(String[] args) throws IOException {
         SpringApplication.run(TextReaderApplication.class, args);
 
-
-        TextReader textReader = new TextReader("grafika.jpg");
-		TextWriter textWriter = new TextWriter(textReader.getText(),textReader.getTitleWithoutEnlargement());
-
-		textWriter.writeFile();
+//
+//        TextReader textReader = new TextReader("grafika.jpg");
+//		TextWriter textWriter = new TextWriter(textReader.getText(),textReader.getTitleWithoutEnlargement());
+//
+//		textWriter.writeFile();
 
 
 //
