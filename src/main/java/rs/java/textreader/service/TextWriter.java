@@ -35,7 +35,7 @@ public class TextWriter {
         this.title = title;
     }
 
-    public void writeFile() throws IOException {
+    public String writeFile() throws IOException {
         String path = "C:\\Reader\\";
         FileWriter fileWriter = null;
         try {
@@ -46,5 +46,6 @@ public class TextWriter {
         } finally {
             fileWriter.close();
         }
+        return title + ".txt";
     }
 }

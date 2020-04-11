@@ -6,40 +6,42 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import rs.java.textreader.service.FileName;
 import rs.java.textreader.service.TextReader;
+import rs.java.textreader.service.TextWriter;
+
+import java.io.IOException;
 
 @Controller
 public class FrontEndController {
 
-    private TextReader textReader;
+    private FileName fileName;
 
     @Autowired
-    public FrontEndController(TextReader textReader) {
-        this.textReader = textReader;
+    public FrontEndController(FileName fileName) {
+        this.fileName = fileName;
     }
 
     @GetMapping("/")
     public String geWriterService(ModelMap map) {
-        map.put("newWriter", textReader);
+        map.put("newFileName", fileName);
         return "index";
     }
 
     @GetMapping("service")
-    String getCalc(ModelMap map) {
+    String getWriter(ModelMap map) throws IOException {
 
+        TextReader textReader = new TextReader(fileName.getName());
+        TextWriter textWriter = new TextWriter(
+                textReader.getText(),textReader.getTitleWithoutEnlargement());
 
-
-        LinkService linkService = new LinkService(flat.getCity(), flat.getArea());
-        CityService cityService = new CityService(linkService.getLink());
-
-        map.put("showPrice", cityService.getAverage());
+        map.put("saveFile", textWriter.writeFile());
         return "service";
     }
 
     @PostMapping("/add-service")
-    public String addOperation(@ModelAttribute Flat flat) {
-        this.flat = flat;
+    public String addOperation(@ModelAttribute FileName fileName) {
+        this.fileName = fileName;
         return "redirect:/service";
     }
-
 }
