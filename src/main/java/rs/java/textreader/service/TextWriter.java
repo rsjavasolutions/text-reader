@@ -1,12 +1,23 @@
 package rs.java.textreader.service;
 
+import org.springframework.stereotype.Service;
+
 import java.io.FileWriter;
 import java.io.IOException;
 
+@Service
 public class TextWriter {
 
     private String text;
     private String title;
+
+    public TextWriter() {
+    }
+
+    public TextWriter(String text, String title) {
+        this.text = text;
+        this.title = title;
+    }
 
     public String getText() {
         return text;

@@ -15,6 +15,9 @@ public class TextReader {
 
     private String title;
 
+    public TextReader() {
+    }
+
     public TextReader(String title) {
         this.title = title;
     }
